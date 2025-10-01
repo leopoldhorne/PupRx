@@ -5,6 +5,15 @@
 //https://dog.ceo/api/breed/hound/images
 
 
+const forms = document.querySelectorAll("form")
+
+forms.forEach((form) => {
+    form.addEventListener("submit", function(e){
+        e.preventDefault()
+        console.log("PREVENTED")
+    })
+})
+
 let canMove = true;
 
 const header = document.querySelector("header");
@@ -29,11 +38,11 @@ function toggleSearch() {
 
 function moveHeader() {
     if (canMove === true) {
-        header.style = "height: 500px; transition: 0;"
-        canMove = false
+        header.style = "height: 500px !important;"
         setTimeout(() => {
             body.style = "overflow: auto;"
         }, 2000)
+        canMove = false
     }
 }
 
